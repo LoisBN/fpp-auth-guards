@@ -4,8 +4,11 @@ Build a protectedLoader that checks auth before pages render, and update the nav
 
 ## Quick Start
 
+**1. Fork this repo** — Click the **Fork** button at the top right of this page.
+
+**2. Clone your fork:**
 ```bash
-git clone https://github.com/LoisBN/fpp-auth-guards.git
+git clone https://github.com/YOUR-GITHUB-USERNAME/fpp-auth-guards.git
 cd fpp-auth-guards
 npm install
 cp .env.example .env
