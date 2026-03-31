@@ -1,5 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import "./app.css";
+import SupabaseBanner from "~/components/SupabaseBanner";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +11,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gray-50 text-gray-900 min-h-screen">
+      <body className="text-gray-900 min-h-screen">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -20,5 +21,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <SupabaseBanner />
+      <Outlet />
+    </>
+  );
 }

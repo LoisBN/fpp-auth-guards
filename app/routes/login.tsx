@@ -1,4 +1,6 @@
 import Navbar from "~/components/Navbar";
+import PageTransition, { staggerContainer, fadeInUp } from "~/components/PageTransition";
+import { motion } from "framer-motion";
 
 export default function Login() {
   // TODO: Implement login with supabase.auth.signInWithPassword
@@ -7,20 +9,47 @@ export default function Login() {
   return (
     <>
       <Navbar />
-      <div className="max-w-md mx-auto p-8">
-        <h2 className="text-2xl font-bold mb-6">Sign In</h2>
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input type="password" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Sign In</button>
-        </form>
-      </div>
+      <PageTransition>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+          className="max-w-sm mx-auto px-6 py-16"
+        >
+          <motion.div variants={fadeInUp} className="card rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-900 mb-6">
+              Sign in
+            </h2>
+            <form className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gray-900 text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors mt-2"
+              >
+                Sign in
+              </button>
+            </form>
+          </motion.div>
+        </motion.div>
+      </PageTransition>
     </>
   );
 }
